@@ -7,7 +7,7 @@ import { ContactDetailsComponent } from "./contact-details/contact-details.compo
 const routes: Routes = [
   { path: 'add', component: ContactAddComponent },
   { path: 'list', component: ContactListComponent },
-  { path: 'details', component: ContactDetailsComponent },
+  { path: 'detail/:id', component: ContactDetailsComponent },
   { path: '', redirectTo: '/list', pathMatch: 'full' },
   /*{ path: '**', component: PageNotFoundComponent },*/
 ];

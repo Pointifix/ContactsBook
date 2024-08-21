@@ -1,1 +1,18 @@
-<p>contact-list works!</p>
+<div class="w3-container">
+  <h3 class="w3-text-blue">Contact List</h3>
+
+  <table *ngIf="contacts$ | async as contacts" class="w3-table-all w3-card-4 w3-light-grey">
+    <thead>
+    <tr class="w3-blue">
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contact of contacts" class="w3-hover-light-green" [routerLink]="['/detail', contact.id]">
+      <td>{{ contact.firstName }}</td>
+      <td>{{ contact.lastName }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

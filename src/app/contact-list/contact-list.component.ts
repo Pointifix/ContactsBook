@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from "../service/contacts.service";
 
 @Component({
   selector: 'app-contact-list',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-list.component.less']
 })
 export class ContactListComponent implements OnInit {
+  contacts$ = this.contactService.getContacts();
 
-  constructor() { }
+  constructor(public contactService: ContactService) {
+  }
 
   ngOnInit(): void {
   }

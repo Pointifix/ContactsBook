@@ -1,18 +1,25 @@
 <div class="w3-container">
-  <h3 class="w3-text-blue">Contact List</h3>
+  <h3 class="w3-text-blue w3-left-align">Contact List</h3>
 
-  <table *ngIf="contacts$ | async as contacts" class="w3-table-all w3-card-4 w3-light-grey">
-    <thead>
-    <tr class="w3-blue">
-      <th>First Name</th>
-      <th>Last Name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let contact of contacts" class="w3-hover-light-green" [routerLink]="['/detail', contact.id]">
-      <td>{{ contact.firstName }}</td>
-      <td>{{ contact.lastName }}</td>
-    </tr>
-    </tbody>
-  </table>
+  <ng-container *ngIf="contacts$ | async as contacts">
+    <table *ngIf="contacts!.length > 0" class="w3-table-all w3-card-4">
+      <thead>
+      <tr class="w3-blue">
+        <th>First Name</th>
+        <th>Last Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let contact of contacts" class="w3-hover-gray" (click)="viewDetail(contact)" [class.w3-dark-gray]="detailContact === contact">
+        <td>{{ contact.firstName }}</td>
+        <td>{{ contact.lastName }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <ng-container *ngIf="detailContact">
+      <hr class="w3-border-gray">
+      <app-contact-details  [contact]="detailContact"></app-contact-details>
+    </ng-container>
+  </ng-container>
 </div>

@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ContactService } from "../service/contacts.service";
-import { ActivatedRoute } from "@angular/router";
-import { Observable } from "rxjs";
 import { Contact } from "../models/contact.model";
 
 @Component({
@@ -10,13 +8,10 @@ import { Contact } from "../models/contact.model";
   styleUrls: ['./contact-details.component.less']
 })
 export class ContactDetailsComponent implements OnInit {
-  contact$: Observable<Contact | undefined> = new Observable<Contact | undefined>();
+  @Input() contact!: Contact;
 
-  constructor(private route: ActivatedRoute, public contactService: ContactService) { }
+  constructor(public contactService: ContactService) { }
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-
-    this.contact$ = this.contactService.getContact(id);
   }
 }

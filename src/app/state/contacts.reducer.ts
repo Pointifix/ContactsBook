@@ -6,11 +6,13 @@ import { Contact } from '../models/contact.model';
 export interface ContactState {
   contacts: Contact[];
   nextId: number;
+  selectedId: number | undefined;
 }
 
 const initialState: ContactState = {
   contacts: [],
-  nextId: 0
+  nextId: 0,
+  selectedId: undefined
 };
 
 export const contactReducer = createReducer(

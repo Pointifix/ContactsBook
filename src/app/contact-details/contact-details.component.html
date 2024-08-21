@@ -1,10 +1,8 @@
-<h3 class="w3-text-blue">Contact Details</h3>
+<h3 class="w3-text-blue w3-left-align">Contact Details</h3>
 
-<div *ngIf="contact$ | async as contact" class="w3-container w3-card-4 w3-light-grey">
-  <div class="w3-section">
-    <h1 class="w3-text-teal">{{ contact.firstName }} {{ contact.lastName }}</h1>
-    <p class="w3-text-teal"><strong>Phone:</strong> {{ contact.phone }}</p>
-    <p class="w3-text-teal"><strong>Email:</strong> {{ contact.email }}</p>
-    <p class="w3-text-teal"><strong>Address:</strong> {{ contact.address }}</p>
-  </div>
+<div class="w3-left-align">
+  <h1 class="w3-text-dark-gray">{{ contact.firstName }} {{ contact.lastName }}</h1>
+  <p class="w3-text-gray"><strong class="w3-text-blue">Phone:</strong> {{ contact.phone }}</p>
+  <p class="w3-text-gray"><strong class="w3-text-blue">Email:</strong> {{ contact.email }}</p>
+  <p class="w3-text-gray"><strong class="w3-text-blue">Address:</strong> {{ contact.address }}</p>
 </div>
